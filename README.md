@@ -31,18 +31,20 @@ attack, and detect it through custom SPL queries and a live dashboard.
 Simulated a brute force attack against the local SSH service using 
 Hydra with the rockyou.txt wordlist targeting the local user account.
 
-Command used:hydra -l harvey -P ~/rockyou.txt -t 4 ssh://127.0.0.1
+Command used:
+```hydra -l harvey -P ~/rockyou.txt -t 4 ssh://127.0.0.1```
 
 This generated 127 failed authentication attempts recorded in 
 /var/log/auth.log within minutes.
 
 ## Detection - SPL Query
 The following Splunk query was used to detect and summarise the attack:
+```
 index=main sourcetype="Authorization Log" "Failed password"
 | rex "Failed password for (?<user>\S+) from (?<src_ip>\S+)"
 | stats count by src_ip, user
 | sort -count
-
+```
 ### Detection Result
 | src_ip    | user   | count |
 |-----------|--------|-------|
@@ -52,10 +54,11 @@ index=main sourcetype="Authorization Log" "Failed password"
 a clear indicator of a brute force attack.
 
 ## Attack Timeline Query
+```
 index=main sourcetype="Authorization Log" "Failed password"
 | rex "Failed password for (?<user>\S+) from (?<src_ip>\S+)"
 | timechart count span=1m
-
+```
 This produced a timeline chart showing a sudden spike in failed 
 logins — consistent with automated brute force activity.
 
