@@ -66,13 +66,13 @@ Built a Splunk dashboard called "SOC Home Lab" containing:
 
 ## Screenshots
 ### Brute Force Detection Table
-![Brute Force Detection](<./Auth logs.png>)
+![Brute Force Detection](<./Brute Force Detection.png>)
 
 ### Attack Timeline Dashboard
-![Attack Timeline](<add screenshot here>)
+![Attack Timeline](<./Attack Timeline.png>)
 
 ### Live Auth Log Events in Splunk
-![Auth Logs](<add screenshot here>)
+![Auth Logs](<./Auth logs.png>)
 
 ## Key Findings
 - Hydra generated 127 failed SSH authentication attempts in under 
