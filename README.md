@@ -66,7 +66,7 @@ Built a Splunk dashboard called "SOC Home Lab" containing:
 
 ## Screenshots
 ### Brute Force Detection Table
-![Brute Force Detection](<add screenshot here>)
+![Brute Force Detection](<./"Auth logs.png">)
 
 ### Attack Timeline Dashboard
 ![Attack Timeline](<add screenshot here>)
